@@ -3,7 +3,7 @@ package br.com.system_rh.dao.configBD;
 public class ConnectPostgre extends ConnectionFactory{
 	
 	private String usuario = "postgres";
-	private String senha = "251011";
+	private String senha = "123456";
 	private String driverName = "org.postgresql.Driver";
 	private String url = "jdbc:postgresql://127.0.0.1:5234/system_rh";
 	

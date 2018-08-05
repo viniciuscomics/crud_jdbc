@@ -1,5 +1,6 @@
 package br.com.system_rh.dao;
 
+import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.util.List;
 
@@ -35,10 +36,11 @@ public class RepositoryDesconto extends AbstractRepository<Desconto> {
 	
 	@Override
 	public Desconto persistResultSet(ResultSet rs) {
-		try {
+		try {			
 			Desconto desconto = new Desconto();
 			desconto.setIdDesconto(rs.getInt("id_desconto"));
-			desconto.setVldesconto(rs.getBigDecimal("vl_desconto"));
+			BigDecimal vlDesc = rs.getBigDecimal("vl_desconto");
+			desconto.setVldesconto(vlDesc == null?new BigDecimal(0):vlDesc);			
 			desconto.setFuncionario(entityFuncionario.persistResultSet(rs));
 			return desconto;
 		} catch (Exception e) {

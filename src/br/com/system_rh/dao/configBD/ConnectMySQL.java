@@ -3,7 +3,7 @@ package br.com.system_rh.dao.configBD;
 public class ConnectMySQL extends ConnectionFactory{
 	
 	private String usuario = "root";
-	private String senha = "123456";
+	private String senha = "251011";
 	private String driverName = "com.mysql.jdbc.Driver";
 	private String url = "jdbc:mysql://localhost/system_rh?useTimezone=true&serverTimezone=UTC";
 	

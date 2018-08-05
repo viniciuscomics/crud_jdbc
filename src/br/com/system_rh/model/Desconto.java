@@ -6,7 +6,16 @@ public class Desconto {
 
 	private int idDesconto;
 	private BigDecimal vldesconto;
-	private Funcionario funcionario;	
+	private Funcionario funcionario;
+	
+	public Desconto() {	
+	}
+	
+	public Desconto(Funcionario funcionario,int idDesconto, BigDecimal vlDesconto) {
+		this.idDesconto = idDesconto;
+		this.vldesconto = vlDesconto;
+		this.funcionario = funcionario;
+	}
 
 	public int getIdDesconto() {
 		return idDesconto;

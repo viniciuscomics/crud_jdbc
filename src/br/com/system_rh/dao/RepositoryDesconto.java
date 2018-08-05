@@ -5,20 +5,27 @@ import java.util.List;
 
 import br.com.system_rh.dao.configBD.ConnectionFactory;
 import br.com.system_rh.model.Desconto;
+import br.com.system_rh.service.DescontoService;
 
 public class RepositoryDesconto extends AbstractRepository<Desconto> {
 	
 	private final String namedQuery = "select * from descontos d inner join funcionario f on d.id_funcionario = f.id_funcionario";
 	
 	private RepositoryFuncionario entityFuncionario;
+	private DescontoService descontoService;
 
 	public RepositoryDesconto(ConnectionFactory connection) {
 		super(connection);
 		entityFuncionario = new RepositoryFuncionario(connection);
+		descontoService = new DescontoService();
 	}
 
 	public void setEntityFuncionario(RepositoryFuncionario entityFuncionario) {
 		this.entityFuncionario = entityFuncionario;
+	}
+	
+	public List<Desconto>obterListaSalarioLiquidoOrdemDecrescente(){
+		return descontoService.obterListaSalarioLiquidoOrdemDecrescente(findAll());
 	}
 	
 	@Override
